@@ -1,7 +1,7 @@
 require './base'
 module Network
   module Http
-    class Post < Network::Base
+    class Post < Network::Http::Base
       attr_accessor :host, :port, :params
       def initialize( host, params = {})
         @host = host
