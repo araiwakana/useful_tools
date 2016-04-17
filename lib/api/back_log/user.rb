@@ -28,7 +28,8 @@ module BackLog
                  mailAddress: mail,
                  roleType: role_id
                 }
-      JSON.parse( BackLog::Base.http_post(BackLog::User::ENDPOINT, params), {:symbolize_names => true} )
+      user_info = JSON.parse( BackLog::Base.http_post(BackLog::User::ENDPOINT, params), {:symbolize_names => true} )
+      created_user = BackLog::User.new( user_info[:id], user_info[:name], user_info[:mailkAddress], user_info[:roleType] )
     end
 
     def update( password: nil, name: self.name, mail: self.mail, role_id: self.role_id )
