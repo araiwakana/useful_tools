@@ -1,6 +1,8 @@
 module BackLog
   class Constants
+    require 'yaml'
     ENDPOINT = "https://temona.backlog.jp/api/v2"
-    API_TOKEN = { apiKey: "Pt4yv9T8oW2Ye0RUoWqhY5Dfegi7BmfpTra2plfmNOvZInLjVyArPDV5OGLwns4x" }
+    SETTING = YAML.load_file(File.expand_path(File.dirname(__FILE__) + '/config.yml'))
+    API_TOKEN = {apiKey: SETTING["api_key"]}
   end
 end
