@@ -11,7 +11,7 @@ module BackLog
 
     def self.all
       project_infos = JSON.parse( BackLog::Base.http_get(BackLog::Project::ENDPOINT) , {:symbolize_names => true} )
-      porjects = project_infos.map { |project_info| BackLog::Project.new( project_info[:id], project_info[:name], projece_info[:projectKey] ) }
+      porjects = project_infos.map { |project_info| BackLog::Project.new( project_info[:id], project_info[:name], project_info[:projectKey] ) }
     end
 
     def self.find(id)
@@ -42,6 +42,10 @@ module BackLog
 
     def show
       JSON.parse( BackLog::Base.http_get(BackLog::Project::ENDPOINT + "/" + self.id.to_s),  {:symbolize_names => true} )
+    end
+
+    def mile_stones
+      BackLog::MileStone.find(self.id)
     end
   end
 end
