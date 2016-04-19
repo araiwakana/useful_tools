@@ -1,4 +1,5 @@
 require './base'
+require './mile_stone'
 module BackLog
   class Project
     ENDPOINT = 'projects'
@@ -28,12 +29,12 @@ module BackLog
                  textFormattingRule: textFormattingRule
                 }
       project_info = JSON.parse( BackLog::Base.http_post(BackLog::Project::ENDPOINT, params), {:symbolize_names => true} )
-      created_project = BackLog::Project.new( project_info[:id], project_info[:name], projece_info[:projectKey] ) 
+      created_project = BackLog::Project.new( project_info[:id], project_info[:name], projece_info[:projectKey] )
     end
 
     def update(name: self.name, key: self.key, chartEnabled: true, subtaskingEnabled: true, textFormattingRule: "markdown" )
       project_info = JSON.parse( BackLog::Base.http_patch(BackLog::Project::ENDPOINT + "/" + self.id.to_s, params), {:symbolize_names => true})
-      updated_project = BackLog::Project.new( project_info[:id], project_info[:name], projece_info[:projectKey] ) 
+      updated_project = BackLog::Project.new( project_info[:id], project_info[:name], projece_info[:projectKey] )
     end
 
     def delete
