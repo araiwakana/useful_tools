@@ -1,4 +1,3 @@
-require './base'
 module BackLog
   class Task
     ENDPOINT = "issues"
@@ -95,6 +94,4 @@ module BackLog
     end
   end
 end
-tasks =  BackLog::Task.find({"projectId[]" => 61072})
-tasks.each {|task| task.calculate_kpi; p task}
 

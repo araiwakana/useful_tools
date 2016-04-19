@@ -1,6 +1,3 @@
-require './base'
-require './mile_stone'
-require './type'
 module BackLog
   class Project
     ENDPOINT = 'projects'

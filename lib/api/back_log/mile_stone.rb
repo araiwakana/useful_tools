@@ -1,4 +1,3 @@
-require './base'
 module BackLog
   class MileStone
     attr_accessor :id, :project_id, :name, :description, :start_date, :due_date, :archived

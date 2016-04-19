@@ -1,5 +1,3 @@
-require './base'
-require 'yaml'
 module BackLog
   class Constants
     ENDPOINT = "https://temona.backlog.jp/api/v2"

@@ -1,9 +1,3 @@
-require 'json'
-require 'yaml'
-require 'pp'
-require 'time'
-require './constants'
-require File.expand_path(File.dirname(__FILE__) + '/../../network/httpd/base')
 module BackLog
   class Base
     def self.http_get( path, params = {} )

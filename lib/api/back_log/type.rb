@@ -1,4 +1,3 @@
-require './base'
 module BackLog
   class Type
     ENDPOINT = 'projects'
@@ -26,6 +25,14 @@ module BackLog
     end
 
     def show
+    end
+    
+    def self.redis_test
+      redis = Redis.new
+      p redis
+      # redis.set('kohei', 1)
+      redis.set('kohei', )
+      # p redis.methods
     end
   end
 end

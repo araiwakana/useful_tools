@@ -1,4 +1,3 @@
-require './base'
 module BackLog
   class User
     ENDPOINT = 'users'
