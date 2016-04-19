@@ -1,5 +1,6 @@
 require './base'
 require './mile_stone'
+require './type'
 module BackLog
   class Project
     ENDPOINT = 'projects'
@@ -48,5 +49,12 @@ module BackLog
     def mile_stones
       BackLog::MileStone.find(self.id)
     end
+
+    def types
+      BackLog::Type.find(self.id)
+    end
   end
 end
+#project = BackLog::Project.find(61072)
+#p project.types
+
