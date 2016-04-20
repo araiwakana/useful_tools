@@ -4,7 +4,7 @@ module BackLog
     include Converter
     #constants
     ENDPOINT = 'projects'
-    REDIS_KEY = 'types'
+    REDIS_KEY = 'projects'
     attr_accessor :id, :name, :key
     #accessor
     def initialize(id ,name, key)

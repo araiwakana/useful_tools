@@ -39,5 +39,19 @@ module BackLog
 
     def delete
     end
+
+    def tasks
+      BackLog::Task.find( {"milestoneId[]" => self.id} )
+    end
+
+    def project
+      BackLog::Project.find(self.project_id)
+    end
+
+    def calculate_tasks_kpi
+      tasks = self.tasks.each { |task| task.calculate_kpi }
+      tasks.group_by { |task| task.assigned_user_id }
+    end
+
   end
 end
