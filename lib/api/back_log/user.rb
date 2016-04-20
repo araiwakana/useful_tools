@@ -1,7 +1,10 @@
 module BackLog
   class User
+    #constants
     ENDPOINT = 'users'
-   attr_accessor :id, :name, :mail, :role_id
+    #accessor
+    attr_accessor :id, :name, :mail, :role_id
+    #constructor
     def initialize(id , name, mail, role_id )
       @id = id
       @name = name
@@ -9,6 +12,7 @@ module BackLog
       @role_id = role_id
     end
 
+    #class method
     def self.all
       users_infos = JSON.parse( BackLog::Base.http_get(BackLog::User::ENDPOINT) , {:symbolize_names => true} )
       users = users_infos.map { |user_info| BackLog::User.new( user_info[:id], user_info[:name], user_info[:mailkAddress], user_info[:roleType] ) }
@@ -31,6 +35,7 @@ module BackLog
       created_user = BackLog::User.new( user_info[:id], user_info[:name], user_info[:mailkAddress], user_info[:roleType] )
     end
 
+    #instance method
     def update( password: nil, name: self.name, mail: self.mail, role_id: self.role_id )
       params =  {
                  password: password,
@@ -52,11 +57,3 @@ module BackLog
     end
   end
 end
-#test
-#p BackLog::User.all
-#p BackLog::User.create(user_id: 100, password: "aaaaaaaa", name: "kohei", mail: "a@gmail.com", role_id: 1)
-#p BackLog::User.find(154374)
-#user = BackLog::User.find(154374)
-#p user.update(name: "bmw")
-#p user.delete
- #p user.delete

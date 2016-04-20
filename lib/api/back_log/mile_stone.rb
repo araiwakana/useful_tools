@@ -1,8 +1,10 @@
 module BackLog
   class MileStone
-    attr_accessor :id, :project_id, :name, :description, :start_date, :due_date, :archived
+    #constants
     ENDPOINT = "projects"
-
+    #accessor
+    attr_accessor :id, :project_id, :name, :description, :start_date, :due_date, :archived
+    #constructor
     def initialize(id:, project_id:, name:, description:, start_date:, due_date:, archived:)
       @id = id
       @project_id = project_id
@@ -13,6 +15,7 @@ module BackLog
       @archived = archived
     end
 
+    #class method
     def self.find(project_id)
       mile_stones_infos = JSON.parse( BackLog::Base.http_get(BackLog::MileStone::ENDPOINT + "/" + project_id.to_s + "/" + "versions") , {:symbolize_names => true} )
       mile_stones = mile_stones_infos.map do |mile_stones_info|
@@ -29,7 +32,8 @@ module BackLog
 
     def self.create
     end
-
+    
+    #instance method
     def update
     end
 
