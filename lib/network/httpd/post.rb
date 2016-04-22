@@ -1,4 +1,3 @@
-require './base'
 module Network
   module Http
     class Post < Network::Http::Base

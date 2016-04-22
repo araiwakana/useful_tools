@@ -14,11 +14,10 @@ require File.expand_path(File.dirname(__FILE__) + '/../../network/httpd/base')
 require File.expand_path(File.dirname(__FILE__) + '/../../helper/converter')
 
 #他のクラス(読み込む順番大事)
-require './constants'
-require './base'
-
-require './project'
-require './mile_stone'
-require './task'
-require './type'
-require './user'
+require File.expand_path(File.dirname(__FILE__) + '/constants')
+require File.expand_path(File.dirname(__FILE__) + '/base')
+require File.expand_path(File.dirname(__FILE__) + '/project')
+require File.expand_path(File.dirname(__FILE__) + '/mile_stone')
+require File.expand_path(File.dirname(__FILE__) + '/task')
+require File.expand_path(File.dirname(__FILE__) + '/type')
+require File.expand_path(File.dirname(__FILE__) + '/user')

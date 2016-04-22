@@ -1,4 +1,3 @@
-require './base'
 module Network
   module Http
     class Delete < Network::Http::Base
