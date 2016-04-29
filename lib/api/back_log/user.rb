@@ -2,6 +2,8 @@ module BackLog
   class User
     #constants
     ENDPOINT = 'users'
+    # when someone take a part in the project, please put the userid here. 
+    TECH_M_USERS = [25032, 25027, 27410, 25028, 81683, 25030, 63195, 146687, 146686, 138557, 138613, 152325]
     #accessor
     attr_accessor :id, :name, :mail, :role_id
     #constructor
@@ -15,7 +17,7 @@ module BackLog
     #class method
     def self.all
       users_infos = JSON.parse( BackLog::Base.http_get(BackLog::User::ENDPOINT) , {:symbolize_names => true} )
-      users = users_infos.map { |user_info| BackLog::User.new( user_info[:id], user_info[:name], user_info[:mailkAddress], user_info[:roleType] ) }
+      users = users_infos.map { |user_info| BackLog::User.new( user_info[:id], user_info[:name], user_info[:mailAddress], user_info[:roleType] ) }
     end
 
     def self.find(id)
