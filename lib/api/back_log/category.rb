@@ -17,8 +17,6 @@ module BackLog
       categories = category_infos.map { |category_info| category_info[:id]}
     end
 
-  
-
     def self.create()
     end
 
