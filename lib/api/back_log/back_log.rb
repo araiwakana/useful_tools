@@ -3,6 +3,8 @@ require 'json'
 require 'yaml'
 require 'pp'
 require 'time'
+require 'date'
+require 'csv'
 
 #bundlerでinstallしたgemをすべてrequire
 require 'bundler'
@@ -20,4 +22,5 @@ require File.expand_path(File.dirname(__FILE__) + '/project')
 require File.expand_path(File.dirname(__FILE__) + '/mile_stone')
 require File.expand_path(File.dirname(__FILE__) + '/task')
 require File.expand_path(File.dirname(__FILE__) + '/type')
+require File.expand_path(File.dirname(__FILE__) + '/category')
 require File.expand_path(File.dirname(__FILE__) + '/user')
