@@ -1,5 +1,4 @@
 #ruby標準添付ライブラリ
-require 'json'
 require 'yaml'
 require 'pp'
 require 'time'

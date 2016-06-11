@@ -1,5 +1,5 @@
 module ChatWork
-  class User
+  class User < ChatWork::Base
     attr_accessor
     def initialize()
     end
