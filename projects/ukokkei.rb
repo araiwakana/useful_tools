@@ -13,7 +13,7 @@ module Ukokkei
   module Logger
     include CustomLogger
     def log(level, content)
-      write_log(level: level, content: content, path: File.expand_path(File.dirname(__FILE__) + '/../logs/ukokkei'))
+      write_log(level: level, content: content, path: File.expand_path(File.dirname(__FILE__) + '/../tmp/log/ukokkei'))
     end
   end
   class Batch
