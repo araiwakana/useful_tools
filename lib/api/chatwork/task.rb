@@ -1,5 +1,5 @@
 module ChatWork
-  class Task
+  class Task < ChatWork::Base
     attr_accessor
     def initialize()
     end
