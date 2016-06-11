@@ -1,4 +1,8 @@
 *.swp
 lib/api/back_log/config.yml
+lib/api/chatwork/config.yml
+lib/api/google_drives/config.yml
 .bundle
+.rvmrc
 /vendor
+/logs
