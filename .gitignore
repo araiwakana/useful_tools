@@ -5,4 +5,4 @@ lib/api/google_drives/config.yml
 .bundle
 .rvmrc
 /vendor
-/logs
+/tmp
