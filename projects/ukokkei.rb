@@ -26,14 +26,23 @@ module Ukokkei
 
     def self.transport
       ROOMS.each do |room_name, room_id|
-        log(:info, "exporting #{room_name.to_s}")
-        export_topics_chat_work_to_drive(room_id)
+        begin
+          log(:info, "exporting #{room_name.to_s}")
+          export_topics_chat_work_to_drive(room_id)
+        rescue => e
+          msg = e.inspect
+          room = ChatWork::Room.new(room_id: room_id)
+          room.send_chat(body: "[To:1024380] ばかやろう例外起きてる" + msg)
+          log(:error, msg)
+          next
+        end
       end
     end
     def self.export_topics_chat_work_to_drive(room_id)
       @room = ChatWork::Room.new(room_id: room_id)
       @room.get_latest_100s_mgs
       container = @room.split_by_topic
+      p container
       @drive_client = GoogleDrives::Base.new
       @spreadsheet = @drive_client.session.spreadsheet_by_key(SPREAD_SHEET_KEY)
       @work_sheet = @spreadsheet.worksheet_by_gid(WORK_SHEET_ID)
@@ -64,8 +73,6 @@ module Ukokkei
         end
       end
       @work_sheet.save
-    rescue => e
-      log(:error, "#{e.class.to_s}\n#{e.message}")
     end
   end
 end

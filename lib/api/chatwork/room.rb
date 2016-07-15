@@ -47,8 +47,7 @@ module ChatWork
       end
     end
     def send_chat(params)#チャットを送る
-      p params
-      JSON.parse( http_post(base_end_point + "/#{room_id}/messages" , {:body =>params[:body]} ), {:symbolize_names => true} )
+      p JSON.parse( http_post(base_end_point + "/#{room_id}/messages" , {:body =>params[:body]} ), {:symbolize_names => true} )
     end
     def get_msg_info#メッセージ情報を取得
     end
