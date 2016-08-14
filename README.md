@@ -30,3 +30,9 @@ rake --tasks
 1. chatwork
 2. back_log
 3. google_drive
+
+## contribution
+- kohei
+- wakana
+- kazuna
+
